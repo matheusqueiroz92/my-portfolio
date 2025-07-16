@@ -1,0 +1,297 @@
+Estrutura de Páginas
+Página Home (principal) e Página de projetos
+Seções obrigatórias:
+
+Header com navegação
+- #Hero section
+- #Sobre + Serviços + Tecnologias
+- #Projetos em destaque
+- #Contato
+- #Footer
+
+Wireframe Detalhado
+1. HEADER
+    Layout: Horizontal, sticky
+    Posição: Topo da página
+    Elementos:
+    - Minha logomarca (canto esquerdo)
+    - Menu horizontal: Início | Sobre mim | Projetos | Contato
+    - Barra de pesquisa com ícone
+    - Ícones das redes sociais
+    - Toggle tema dark/light (canto direito)
+
+    Comportamentos:
+    - Sticky no scroll
+    - Highlight da seção ativa
+    - Animação de transição entre temas
+
+2. HERO SECTION
+    Layout: Split-screen
+    Altura: 100vh
+
+    Lado esquerdo: 
+    - Título principal: "Transformando ideias em soluções digitais excepcionais"
+    - Subtítulo: "Engenheiro da computação especializado em desenvolvimento full stack"
+    - 3 botões CTA:
+        - "Ver Projetos" (primário - azul)
+        - "Baixar Currículo" (secundário - outline)
+        - "Contato" (botão de whatsapp)
+
+    Lado Direito:
+
+    - Elemento visual animado:
+
+    - Terminal simulado com código sendo digitado
+    Ou geometric shapes de tecnologias flutuantes
+    Ou animação de typing code
+
+
+
+3. SOBRE + SERVIÇOS + TECNOLOGIAS
+Layout: Seção única dividida em 3 colunas
+Coluna 1 - Sobre (33%):
+
+Título: "Sobre Mim"
+Texto biográfico (3-4 parágrafos)
+Cards de curiosidades (2-3 itens)
+Avatar/foto profissional
+
+Coluna 2 - Serviços (33%):
+
+Título: "Serviços"
+3 cards de serviços:
+
+Desenvolvimento Full Stack
+Consultoria em Tecnologia
+Assessoria em Projetos Web
+
+
+Ícones + descrição breve
+
+Coluna 3 - Tecnologias (33%):
+
+Título: "Stack Tecnológico"
+Grid de tecnologias:
+
+React, Next.js, Node.js, Express, TypeScript
+
+
+Visual: logos + skill level
+Hover effects nos cards
+
+4. PROJETOS
+Layout: Grid 3 colunas (responsivo)
+Título: "Projetos em Destaque"
+Card de Projeto:
+
+Thumbnail/preview (16:9)
+Título do projeto
+Descrição breve (2 linhas)
+Tech stack badges
+Botões: "Demo" | "Código"
+Hover: preview expandido
+
+Quantidade: 6 projetos principais
+5. CONTATO
+Layout: Centrado com sidebar
+Formulário Principal (70%):
+
+Título: "Vamos Conversar?"
+Campos:
+
+Nome completo
+Email
+Assunto
+Mensagem
+
+
+Botão "Enviar Mensagem"
+Validação em tempo real
+
+Sidebar Redes Sociais (30%):
+
+LinkedIn, GitHub, Instagram, WhatsApp
+Ícones grandes com labels
+Hover effects
+
+6. FOOTER
+Layout: Horizontal simples
+Elementos:
+
+Copyright
+Links rápidos
+Redes sociais (pequenas)
+Tema consistente
+
+Design System
+Cores - Tema Dark (Principal)
+
+Background: #0a0a0a
+Surface: #1a1a1a
+Cards: #2a2a2a
+Primary: #3b82f6 (azul tech)
+Success: #10b981 (verde)
+Text: #ffffff / #a1a1aa
+
+Cores - Tema Light (Alternativo)
+
+Background: #fafafa
+Surface: #ffffff
+Cards: #f4f4f5
+Primary: #2563eb
+Success: #059669
+Text: #0a0a0a / #525252
+
+Tipografia
+
+Headings: Inter Bold (32px/24px/20px)
+Body: Inter Regular (16px/14px)
+Code: JetBrains Mono (14px)
+Line-height: 1.6 para legibilidade
+
+Spacing
+
+Sections: 120px vertical
+Cards: 24px padding
+Grid gap: 32px
+Buttons: 16px padding
+
+Componentes UI
+Buttons
+
+Primary: Azul sólido + hover effect
+Secondary: Outline + hover fill
+Ghost: Transparente + hover background
+
+Cards
+
+Border radius: 12px
+Shadow: Sutil no dark, mais visível no light
+Hover: Lift effect (transform Y)
+
+Forms
+
+Inputs: Rounded, focus states
+Validation: Real-time feedback
+Labels: Floating ou fixed
+
+Navigation
+
+Menu: Horizontal smooth scroll
+Mobile: Hamburger menu
+Active states: Underline ou highlight
+
+Animações e Interações
+Micro-interações
+
+Hover effects: Scale, glow, color change
+Button clicks: Ripple effect
+Form focus: Smooth transitions
+Theme toggle: Flip ou slide animation
+
+Scroll Animations
+
+Fade in: Elementos aparecem no scroll
+Parallax: Background elements
+Stagger: Cards aparecem sequencialmente
+Progress bar: Scroll progress no topo
+
+Loading States
+
+Skeleton: Para cards de projeto
+Spinner: Para formulário
+Shimmer: Para imagens
+
+Responsividade
+Breakpoints
+
+Mobile: 320px - 768px
+Tablet: 768px - 1024px
+Desktop: 1024px+
+
+Adaptações Mobile
+
+Hero: Stack vertical
+Navegação: Hamburger menu
+Grid: 1 coluna
+Typography: Tamanhos reduzidos
+
+Adaptações Tablet
+
+Hero: 50/50 split
+Grid: 2 colunas
+Navigation: Horizontal mantido
+
+Especificações Técnicas
+Funcionalidades
+
+Download CV: Botão funcional
+Formulário: Validação e envio
+Tema: Toggle com persistência
+Redes sociais: Links funcionais
+Scroll suave: Entre seções
+
+Performance
+
+Images: Lazy loading
+Animations: 60fps target
+Fonts: Preload critical
+Code: Minified output
+
+Conteúdo Sugerido
+Textos Placeholder
+
+Hero: "Desenvolvendo o futuro, uma linha de código por vez"
+Sobre: "Engenheiro apaixonado por criar soluções digitais inovadoras..."
+Curiosidades: "☕ Café é meu combustível", "🌙 Programo melhor à noite"
+
+Projetos Exemplo
+
+E-commerce Platform - Next.js, Stripe, MongoDB
+Task Manager - React, Node.js, PostgreSQL
+Portfolio CMS - TypeScript, Express, Redis
+
+Diretrizes de Usabilidade
+Acessibilidade
+
+Contraste: WCAG AA compliance
+Keyboard: Navegação completa
+Screen reader: ARIA labels
+Focus: Indicadores visíveis
+
+UX Principles
+
+Clareza: Hierarquia visual clara
+Consistência: Design system coeso
+Feedback: Estados visuais imediatos
+Eficiência: Navegação intuitiva
+
+Resultado Esperado
+Um protótipo de alta fidelidade que demonstre:
+
+Profissionalismo: Design limpo e moderno
+Expertise técnica: Através da própria implementação
+Usabilidade: Navegação intuitiva e eficiente
+Impacto visual: Primeira impressão marcante
+Conversão: CTAs claros e formulário eficaz
+
+O portfólio deve servir como cartão de visitas digital, showcasing das habilidades do Matheus e facilitador de novos contatos profissionais.
+Instruções Finais
+
+Priorize a experiência do usuário em todos os pontos de contato
+Mantenha consistência visual entre todas as seções
+Garanta responsividade em todos os breakpoints
+Implemente micro-interações para melhorar o engajamento
+Teste o fluxo completo de navegação e contato
+Valide a hierarquia visual e legibilidade
+Otimize para conversão com CTAs estratégicos
+
+    
+    
+    O design desse site deve ser minimalista, moderno, elegante e atraente. Deve ser composto de cores predominantemente escuras (com opção de alterar para um tema light), que façam alusão a tecnologia, computação e programação. Deve ser bastante criativo, ter animações relacionadas ao tema do site, e proporcionar uma excelente UX/UI ao quem acessa-o.
+
+    
+
+
+
+    
