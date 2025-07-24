@@ -1,8 +1,14 @@
 "use client";
 
 import { Linkedin, Github, Instagram } from "lucide-react";
+import Image from "next/image";
+import LogoDark from "../../../public/logo-matheus-dev.png";
+import LogoLight from "../../../public/logo-matheus-dev-escura.png";
+import { useThemeDetection } from "@/hooks/useThemeDetection";
 
 export function Footer() {
+  const { isDark, mounted } = useThemeDetection();
+
   const socialLinks = [
     {
       href: "https://linkedin.com/in/matheus-queiroz-dev-web",
@@ -30,19 +36,35 @@ export function Footer() {
   ];
 
   return (
-    <footer className="relative bg-gradient-to-br from-slate-900 via-slate-800 to-black text-white py-12 px-4 sm:px-6 lg:px-8">
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 via-purple-500/5 to-pink-500/5"></div>
+    <footer className="relative bg-gradient-to-br from-slate-100 via-slate-200 to-white dark:from-slate-900 dark:via-slate-800 dark:to-black text-slate-800 dark:text-white py-12 px-4 sm:px-6 lg:px-8">
+      <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 via-purple-500/5 to-pink-500/5 dark:from-blue-500/5 dark:via-purple-500/5 dark:to-pink-500/5"></div>
       <div className="max-w-7xl mx-auto relative">
         <div className="grid md:grid-cols-4 gap-8">
           {/* Logo and Description */}
           <div className="md:col-span-2">
             <div className="flex items-center mb-4">
-              <div className="text-2xl font-bold text-blue-400">MQ</div>
-              <span className="ml-2 text-lg font-semibold">
-                Matheus Queiroz
-              </span>
+              {mounted && (
+                <div className="transition-transform duration-300 hover:scale-110">
+                  <Image
+                    src={isDark ? LogoDark : LogoLight}
+                    alt="Logo"
+                    width={240}
+                    height={80}
+                    priority
+                    className="block dark:hidden"
+                  />
+                  <Image
+                    src={LogoDark}
+                    alt="Logo"
+                    width={240}
+                    height={80}
+                    priority
+                    className="hidden dark:block"
+                  />
+                </div>
+              )}
             </div>
-            <p className="text-slate-300 mb-6 max-w-md">
+            <p className="text-slate-600 dark:text-slate-300 mb-6 max-w-md">
               Desenvolvedor Fullstack apaixonado por criar soluções digitais
               inovadoras que transformam ideias em realidade.
             </p>
@@ -53,7 +75,7 @@ export function Footer() {
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`text-slate-300 transition-all duration-300 hover:scale-110 ${social.color}`}
+                  className={`text-slate-600 dark:text-slate-300 transition-all duration-300 hover:scale-110 ${social.color}`}
                 >
                   <social.icon className="w-5 h-5" />
                 </a>
@@ -69,7 +91,7 @@ export function Footer() {
                 <li key={link}>
                   <a
                     href={`#${link.toLowerCase().replace(" ", "")}`}
-                    className="text-slate-300 hover:text-white transition-colors duration-300 hover:translate-x-1 inline-block"
+                    className="text-slate-600 dark:text-slate-300 hover:text-slate-800 dark:hover:text-white transition-colors duration-300 hover:translate-x-1 inline-block"
                   >
                     {link}
                   </a>
@@ -86,7 +108,7 @@ export function Footer() {
                 <li key={service}>
                   <a
                     href="#"
-                    className="text-slate-300 hover:text-white transition-colors duration-300 hover:translate-x-1 inline-block"
+                    className="text-slate-600 dark:text-slate-300 hover:text-slate-800 dark:hover:text-white transition-colors duration-300 hover:translate-x-1 inline-block"
                   >
                     {service}
                   </a>
@@ -96,9 +118,10 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-slate-800 mt-8 pt-8 text-center">
-          <p className="text-slate-400">
-            © 2024 Matheus Queiroz. Todos os direitos reservados.
+        <div className="border-t border-slate-300 dark:border-slate-800 mt-8 pt-8 text-center">
+          <p className="text-slate-500 dark:text-slate-400">
+            © {new Date().getFullYear()} Matheus Queiroz. Todos os direitos
+            reservados.
           </p>
         </div>
       </div>

@@ -14,6 +14,7 @@ import {
   Cpu,
 } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 
 interface HeroSectionProps {
   heroRef: React.RefObject<HTMLDivElement | null>;
@@ -35,7 +36,7 @@ export function HeroSection({ heroRef }: HeroSectionProps) {
               <div className="flex gap-2">
                 <div className="hero-badge inline-flex items-center px-4 py-2 bg-blue-300/30 text-indigo-900 dark:bg-blue-950 dark:text-blue-300 rounded-full text-xs font-medium">
                   <CodeXml className="w-4 h-4 mr-2" />
-                  Desenvolvedor Fullstack
+                  Desenvolvedor Fullstack TESTEEEE!!
                 </div>
 
                 <div className="hero-badge inline-flex items-center px-4 py-2 bg-sky-300/30 text-indigo-900 dark:bg-indigo-950 dark:text-blue-300 rounded-full text-xs font-medium">
@@ -89,13 +90,13 @@ export function HeroSection({ heroRef }: HeroSectionProps) {
             </div>
 
             {/* Cards de Estatísticas */}
-            <div className="grid grid-cols-3 gap-6 pt-8 animate-on-scroll">
+            <div className="grid grid-cols-3 gap-6 pt-4 animate-on-scroll">
               <div className="text-center p-4 bg-white/50 dark:bg-slate-800/50 rounded-full backdrop-blur-sm border border-white/20 dark:border-slate-700/20">
                 <div className="text-2xl font-bold text-blue-600 dark:text-blue-400">
                   50+
                 </div>
                 <div className="text-sm text-slate-600 dark:text-slate-300">
-                  Projetos
+                  Projetos desenvolvidos
                 </div>
               </div>
               <div className="text-center p-4 bg-white/50 dark:bg-slate-800/50 rounded-full backdrop-blur-sm border border-white/20 dark:border-slate-700/20">
@@ -111,7 +112,7 @@ export function HeroSection({ heroRef }: HeroSectionProps) {
                   100%
                 </div>
                 <div className="text-sm text-slate-600 dark:text-slate-300">
-                  Satisfação
+                  Satisfação dos clientes
                 </div>
               </div>
             </div>
@@ -119,46 +120,55 @@ export function HeroSection({ heroRef }: HeroSectionProps) {
 
           {/* Right Side - Creative Animation */}
           <div className="relative animate-on-scroll">
-            <div className="relative w-full h-96 lg:h-[500px]">
-              {/* Main Card */}
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-500 via-purple-600 to-pink-600 rounded-3xl overflow-hidden shadow-2xl transform rotate-3 hover:rotate-0 transition-transform duration-500">
-                <div className="absolute inset-0 bg-gradient-to-br from-blue-400/20 via-purple-500/20 to-pink-500/20"></div>
+            <div className="relative w-full h-96 lg:h-[600px] flex items-center justify-center">
+              {/* Floating Icons */}
+              <div
+                className="absolute top-8 left-8 w-12 h-12 bg-gradient-to-br from-blue-600/30 to-slate-700/30 rounded-xl flex items-center justify-center backdrop-blur-sm animate-bounce border border-white/20"
+                style={{ animationDuration: "3s" }}
+              >
+                <Code className="w-6 h-6 text-white" />
+              </div>
+              <div
+                className="absolute top-16 right-12 w-10 h-10 bg-gradient-to-br from-slate-600/30 to-cyan-600/30 rounded-xl flex items-center justify-center backdrop-blur-sm animate-bounce delay-1000 border border-white/20"
+                style={{ animationDuration: "3s" }}
+              >
+                <Database className="w-5 h-5 text-white" />
+              </div>
+              <div
+                className="absolute bottom-16 left-12 w-10 h-10 bg-gradient-to-br from-cyan-600/30 to-blue-700/30 rounded-xl flex items-center justify-center backdrop-blur-sm animate-bounce delay-2000 border border-white/20"
+                style={{ animationDuration: "3s" }}
+              >
+                <Smartphone className="w-5 h-5 text-white" />
+              </div>
+              <div
+                className="absolute bottom-8 right-8 w-12 h-12 bg-gradient-to-br from-blue-700/30 to-slate-800/30 rounded-xl flex items-center justify-center backdrop-blur-sm animate-bounce delay-3000 border border-white/20"
+                style={{ animationDuration: "3s" }}
+              >
+                <Globe className="w-6 h-6 text-white" />
+              </div>
 
-                {/* Floating Icons */}
-                <div className="absolute top-8 left-8 w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center backdrop-blur-sm animate-bounce">
-                  <Code className="w-6 h-6 text-white" />
-                </div>
-                <div className="absolute top-16 right-12 w-10 h-10 bg-white/20 rounded-xl flex items-center justify-center backdrop-blur-sm animate-bounce delay-1000">
-                  <Database className="w-5 h-5 text-white" />
-                </div>
-                <div className="absolute bottom-16 left-12 w-10 h-10 bg-white/20 rounded-xl flex items-center justify-center backdrop-blur-sm animate-bounce delay-2000">
-                  <Smartphone className="w-5 h-5 text-white" />
-                </div>
-                <div className="absolute bottom-8 right-8 w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center backdrop-blur-sm animate-bounce delay-3000">
-                  <Globe className="w-6 h-6 text-white" />
-                </div>
-
-                {/* Central Content */}
-                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white text-center">
-                  <div className="text-6xl font-bold mb-4 animate-pulse">
-                    💻
-                  </div>
-                  <div className="text-2xl font-semibold mb-2">
-                    Desenvolvimento Web
-                  </div>
-                  <div className="text-lg opacity-90">Fullstack</div>
-                  <div className="mt-4 flex items-center justify-center space-x-2">
-                    <div className="w-2 h-2 bg-white rounded-full animate-ping"></div>
-                    <div className="w-2 h-2 bg-white rounded-full animate-ping delay-300"></div>
-                    <div className="w-2 h-2 bg-white rounded-full animate-ping delay-600"></div>
+              {/* Central Content */}
+              <div className="text-center">
+                <div className="flex justify-center">
+                  <div className="relative">
+                    {/* Glow effect behind the image */}
+                    <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-600/30 via-slate-700/30 to-cyan-600/30 blur-xl -z-10"></div>
+                    <Image
+                      src="/foto-matheus.png"
+                      alt="Matheus Queiroz"
+                      width={450}
+                      height={450}
+                      className="rounded-full border-4 border-white/30 shadow-2xl animate-float relative z-10"
+                      style={{ animationDuration: "3s" }}
+                      priority
+                    />
                   </div>
                 </div>
               </div>
 
               {/* Floating Elements */}
-              <div className="absolute -top-4 -right-4 w-8 h-8 bg-yellow-400 rounded-full animate-ping"></div>
-              <div className="absolute -bottom-4 -left-4 w-6 h-6 bg-green-400 rounded-full animate-pulse"></div>
-              <div className="absolute top-1/2 -left-8 w-4 h-4 bg-red-400 rounded-full animate-bounce"></div>
+              <div className="absolute -bottom-4 -left-4 w-6 h-6 bg-slate-500/30 rounded-full animate-pulse"></div>
+              <div className="absolute top-1/2 -left-8 w-4 h-4 bg-cyan-900/30 rounded-full animate-bounce"></div>
             </div>
           </div>
         </div>
@@ -168,6 +178,19 @@ export function HeroSection({ heroRef }: HeroSectionProps) {
       <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
         <ChevronDown className="w-6 h-6 text-slate-400" />
       </div>
+
+      {/* Custom CSS for smooth floating animation */}
+      <style jsx>{`
+        @keyframes float {
+          0%,
+          100% {
+            transform: translateY(0px);
+          }
+          50% {
+            transform: translateY(-8px);
+          }
+        }
+      `}</style>
     </section>
   );
 }
