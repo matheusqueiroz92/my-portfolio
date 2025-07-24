@@ -36,7 +36,7 @@ export function HeroSection({ heroRef }: HeroSectionProps) {
               <div className="flex gap-2">
                 <div className="hero-badge inline-flex items-center px-4 py-2 bg-blue-300/30 text-indigo-900 dark:bg-blue-950 dark:text-blue-300 rounded-full text-xs font-medium">
                   <CodeXml className="w-4 h-4 mr-2" />
-                  Desenvolvedor Fullstack TESTANDOOOO!!
+                  Desenvolvedor Fullstack TESTANDOOOO!!!
                 </div>
 
                 <div className="hero-badge inline-flex items-center px-4 py-2 bg-sky-300/30 text-indigo-900 dark:bg-indigo-950 dark:text-blue-300 rounded-full text-xs font-medium">
