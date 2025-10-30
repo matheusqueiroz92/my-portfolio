@@ -5,6 +5,7 @@ import {
   HeroSection,
   AboutSection,
   ProjectsSection,
+  TechnologiesSection,
   ContactSection,
 } from "@/components/sections";
 import { useGSAPAnimations } from "@/hooks/useGSAPAnimations";
@@ -15,12 +16,13 @@ export default function Home() {
   const { heroRef, floatingElementsRef } = useGSAPAnimations();
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 relative overflow-hidden">
+    <div className="min-h-screen bg-gradient-to-br from-slate-950 via-purple-950 to-black relative overflow-hidden">
       <AnimatedParticles />
       <AnimatedBackground floatingElementsRef={floatingElementsRef} />
       <Header />
       <HeroSection heroRef={heroRef} />
       <AboutSection />
+      <TechnologiesSection />
       <ProjectsSection />
       <ContactSection />
       <Footer />

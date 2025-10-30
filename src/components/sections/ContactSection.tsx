@@ -6,12 +6,12 @@ export function ContactSection() {
   return (
     <section
       id="contato"
-      className="relative py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-slate-50 via-blue-50/30 to-purple-50/30 dark:from-slate-900 dark:via-slate-800 dark:to-black"
+      className="relative py-32 px-4 sm:px-6 lg:px-8 border-b border-purple-900/20"
     >
       {/* Background decorative elements */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -top-40 -right-40 w-80 h-80 bg-blue-400/10 rounded-full blur-3xl"></div>
-        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-purple-400/10 rounded-full blur-3xl"></div>
+        <div className="absolute -top-40 -right-40 w-80 h-80 bg-blue-500/10 rounded-full blur-3xl"></div>
+        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-purple-500/10 rounded-full blur-3xl"></div>
       </div>
 
       <div className="max-w-6xl mx-auto relative">
@@ -64,17 +64,17 @@ export function ContactSection() {
 
           {/* Right Panel - Contact Form */}
           <div className="animate-on-scroll">
-            <div className="bg-white dark:bg-slate-800 rounded-2xl p-8 shadow-2xl">
+            <div className="bg-slate-800/50 rounded-2xl p-8 shadow-2xl border border-purple-500/20">
               <div className="flex items-center mb-4">
                 <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-500 rounded-xl flex items-center justify-center mr-4">
                   <FileText className="w-6 h-6 text-white" />
                 </div>
-                <h2 className="text-2xl font-bold text-slate-900 dark:text-white">
+                <h2 className="text-2xl font-bold text-white">
                   Envie uma mensagem
                 </h2>
               </div>
 
-              <p className="text-sm text-slate-500 dark:text-slate-400 mb-4 leading-relaxed">
+              <p className="text-sm text-slate-300 mb-4 leading-relaxed">
                 Tem um projeto em mente? Vamos conversar, posso te ajudar a
                 transformar sua ideia em realidade!
               </p>
@@ -83,7 +83,7 @@ export function ContactSection() {
                 <div>
                   <label
                     htmlFor="name"
-                    className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2"
+                    className="block text-sm font-medium text-slate-300 mb-2"
                   >
                     Nome
                   </label>
@@ -91,7 +91,7 @@ export function ContactSection() {
                     type="text"
                     id="name"
                     name="name"
-                    className="w-full px-4 py-2 border border-slate-300 dark:border-slate-600 rounded-xl bg-white dark:bg-slate-700 text-slate-900 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
+                    className="w-full px-4 py-2 border border-purple-500/20 rounded-xl bg-slate-700/50 text-white focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300"
                     placeholder="Seu nome completo"
                   />
                 </div>
@@ -99,7 +99,7 @@ export function ContactSection() {
                 <div>
                   <label
                     htmlFor="email"
-                    className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2"
+                    className="block text-sm font-medium text-slate-300 mb-2"
                   >
                     Email
                   </label>
@@ -107,7 +107,7 @@ export function ContactSection() {
                     type="email"
                     id="email"
                     name="email"
-                    className="w-full px-4 py-2 border border-slate-300 dark:border-slate-600 rounded-xl bg-white dark:bg-slate-700 text-slate-900 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
+                    className="w-full px-4 py-2 border border-purple-500/20 rounded-xl bg-slate-700/50 text-white focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300"
                     placeholder="seu@email.com"
                   />
                 </div>
@@ -115,7 +115,7 @@ export function ContactSection() {
                 <div>
                   <label
                     htmlFor="message"
-                    className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2"
+                    className="block text-sm font-medium text-slate-300 mb-2"
                   >
                     Mensagem
                   </label>
@@ -123,7 +123,7 @@ export function ContactSection() {
                     id="message"
                     name="message"
                     rows={5}
-                    className="w-full px-4 py-2 border border-slate-300 dark:border-slate-600 rounded-xl bg-white dark:bg-slate-700 text-slate-900 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none transition-all duration-300"
+                    className="w-full px-4 py-2 border border-purple-500/20 rounded-xl bg-slate-700/50 text-white focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent resize-none transition-all duration-300"
                     placeholder="Digite sua mensagem..."
                   ></textarea>
                 </div>

@@ -72,11 +72,47 @@ export const SERVICES: Service[] = [
 ];
 
 export const TECHNOLOGIES: Technology[] = [
+  // Frontend
   { name: "React", category: "frontend" },
   { name: "Next.js", category: "frontend" },
+  { name: "Vue.js", category: "frontend" },
+  { name: "Angular", category: "frontend" },
+  { name: "HTML5", category: "frontend" },
+  { name: "CSS3", category: "frontend" },
+  { name: "JavaScript", category: "frontend" },
+  { name: "TypeScript", category: "frontend" },
+  { name: "Tailwind CSS", category: "frontend" },
+  { name: "Shadcn/UI", category: "frontend" },
+  { name: "Material-UI", category: "frontend" },
+  // Backend
   { name: "Node.js", category: "backend" },
   { name: "Express", category: "backend" },
-  { name: "TypeScript", category: "tools" },
+  { name: "NestJS", category: "backend" },
+  { name: "Python", category: "backend" },
+  { name: "FastAPI", category: "backend" },
+  { name: "PHP", category: "backend" },
+  { name: "Laravel", category: "backend" },
+  { name: "JWT", category: "backend" },
+  // Database
+  { name: "MongoDB", category: "database" },
+  { name: "MySQL", category: "database" },
+  { name: "PostgreSQL", category: "database" },
+  { name: "SQLite", category: "database" },
+  { name: "Firebase", category: "database" },
+  { name: "Redis", category: "database" },
+  // Tools & DevOps
+  { name: "Git", category: "tools" },
+  { name: "GitHub", category: "tools" },
+  { name: "GitLab", category: "tools" },
+  { name: "Docker", category: "tools" },
+  { name: "Vercel", category: "tools" },
+  { name: "AWS", category: "tools" },
+  { name: "Linux", category: "tools" },
+  { name: "NPM", category: "tools" },
+  { name: "Yarn", category: "tools" },
+  { name: "Webpack", category: "tools" },
+  { name: "ESLint", category: "tools" },
+  { name: "Prettier", category: "tools" },
 ];
 
 export const PROJECTS: Project[] = [
