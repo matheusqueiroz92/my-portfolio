@@ -25,7 +25,7 @@ export function HeroSection({ heroRef }: HeroSectionProps) {
     <section
       id="inicio"
       ref={heroRef}
-      className="relative pt-24 pb-32 px-4 sm:px-6 lg:px-8 min-h-screen flex items-center border-b border-purple-900/20"
+      className="relative pt-24 pb-32 px-4 sm:px-6 lg:px-8 min-h-screen flex items-center border-b border-slate-800/50"
     >
       <div className="max-w-7xl mx-auto w-full">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -34,17 +34,17 @@ export function HeroSection({ heroRef }: HeroSectionProps) {
             <div className="space-y-6">
               {/* Badge */}
               <div className="flex gap-3">
-                <div className="hero-badge inline-flex items-center px-4 py-2 bg-blue-500/10 border border-blue-500/20 text-blue-400 rounded-full text-xs font-medium">
+                <div className="hero-badge inline-flex items-center px-4 py-2 bg-slate-800/50 border border-slate-700/50 text-slate-300 rounded-full text-xs font-medium">
                   <CodeXml className="w-4 h-4 mr-2" />
                   Fullstack
                 </div>
 
-                <div className="hero-badge inline-flex items-center px-4 py-2 bg-purple-500/10 border border-purple-500/20 text-purple-400 rounded-full text-xs font-medium">
+                <div className="hero-badge inline-flex items-center px-4 py-2 bg-slate-800/50 border border-slate-700/50 text-slate-300 rounded-full text-xs font-medium">
                   <LaptopMinimal className="w-4 h-4 mr-2" />
                   Eng. Software
                 </div>
 
-                <div className="hero-badge inline-flex items-center px-4 py-2 bg-pink-500/10 border border-pink-500/20 text-pink-400 rounded-full text-xs font-medium">
+                <div className="hero-badge inline-flex items-center px-4 py-2 bg-slate-800/50 border border-slate-700/50 text-slate-300 rounded-full text-xs font-medium">
                   <Cpu className="w-4 h-4 mr-2" />
                   Eng. Computação
                 </div>
@@ -54,7 +54,7 @@ export function HeroSection({ heroRef }: HeroSectionProps) {
               <h1 className="hero-title text-5xl sm:text-6xl lg:text-7xl font-bold text-white leading-tight">
                 Transformando ideias em{" "}
                 <span className="relative inline-block">
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400">
+                  <span className="text-white">
                     realidade digital
                   </span>
                 </span>
@@ -71,15 +71,15 @@ export function HeroSection({ heroRef }: HeroSectionProps) {
             <div className="flex flex-col sm:flex-row gap-4">
               <Link
                 href="#contato"
-                className="hero-cta group inline-flex items-center justify-center px-24 py-3 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-xl"
+                className="hero-cta group inline-flex items-center justify-center px-24 py-3 bg-slate-800 hover:bg-slate-700 border border-slate-700 text-white font-semibold rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-xl"
               >
-                <MessageCircle className="w-5 h-5 mr-2 group-hover:animate-bounce" />
+                <MessageCircle className="w-5 h-5 mr-2" />
                 Entre em Contato
                 <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
               </Link>
               <Link
                 href="#projetos"
-                className="hero-cta group inline-flex items-center justify-center px-12 py-3 border-2 border-purple-400 text-purple-400 hover:bg-purple-400/10 font-semibold rounded-full transition-all duration-300 transform hover:scale-105"
+                className="hero-cta group inline-flex items-center justify-center px-12 py-3 border-2 border-slate-700 text-slate-300 hover:bg-slate-800/50 font-semibold rounded-full transition-all duration-300 transform hover:scale-105"
               >
                 <ExternalLink className="w-5 h-5 mr-2" />
                 Ver Projetos
@@ -88,17 +88,17 @@ export function HeroSection({ heroRef }: HeroSectionProps) {
 
             {/* Cards de Estatísticas */}
             <div className="grid grid-cols-3 gap-6 pt-8 animate-on-scroll">
-              <div className="text-center p-4 bg-slate-800/50 backdrop-blur-sm rounded-2xl border border-purple-500/20">
-                <div className="text-3xl font-bold text-blue-400">50+</div>
-                <div className="text-sm text-slate-300">Projetos</div>
+              <div className="text-center p-4 bg-slate-800/50 backdrop-blur-sm rounded-2xl border border-slate-700/50">
+                <div className="text-3xl font-bold text-slate-300">50+</div>
+                <div className="text-sm text-slate-400">Projetos</div>
               </div>
-              <div className="text-center p-4 bg-slate-800/50 backdrop-blur-sm rounded-2xl border border-purple-500/20">
-                <div className="text-3xl font-bold text-purple-400">5+</div>
-                <div className="text-sm text-slate-300">Anos Exp.</div>
+              <div className="text-center p-4 bg-slate-800/50 backdrop-blur-sm rounded-2xl border border-slate-700/50">
+                <div className="text-3xl font-bold text-slate-300">5+</div>
+                <div className="text-sm text-slate-400">Anos Exp.</div>
               </div>
-              <div className="text-center p-4 bg-slate-800/50 backdrop-blur-sm rounded-2xl border border-purple-500/20">
-                <div className="text-3xl font-bold text-pink-400">100%</div>
-                <div className="text-sm text-slate-300">Satisfação</div>
+              <div className="text-center p-4 bg-slate-800/50 backdrop-blur-sm rounded-2xl border border-slate-700/50">
+                <div className="text-3xl font-bold text-slate-300">100%</div>
+                <div className="text-sm text-slate-400">Satisfação</div>
               </div>
             </div>
           </div>
@@ -161,7 +161,7 @@ export function HeroSection({ heroRef }: HeroSectionProps) {
 
       {/* Scroll Indicator */}
       <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-        <ChevronDown className="w-6 h-6 text-purple-400" />
+        <ChevronDown className="w-6 h-6 text-slate-400" />
       </div>
 
       {/* Custom CSS for smooth floating animation */}

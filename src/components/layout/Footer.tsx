@@ -67,7 +67,7 @@ export function Footer() {
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-slate-300 transition-all duration-300 hover:scale-110 hover:text-purple-400"
+                  className="text-slate-300 transition-all duration-300 hover:scale-110 hover:text-white"
                 >
                   <social.icon className="w-5 h-5" />
                 </a>
@@ -83,7 +83,7 @@ export function Footer() {
                 <li key={link}>
                   <a
                     href={`#${link.toLowerCase().replace(" ", "")}`}
-                    className="text-slate-300 hover:text-purple-400 transition-colors duration-300 hover:translate-x-1 inline-block"
+                    className="text-slate-300 hover:text-white transition-colors duration-300 hover:translate-x-1 inline-block"
                   >
                     {link}
                   </a>
@@ -100,7 +100,7 @@ export function Footer() {
                 <li key={service}>
                   <a
                     href="#"
-                    className="text-slate-300 hover:text-purple-400 transition-colors duration-300 hover:translate-x-1 inline-block"
+                    className="text-slate-300 hover:text-white transition-colors duration-300 hover:translate-x-1 inline-block"
                   >
                     {service}
                   </a>
@@ -110,7 +110,7 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-purple-900/20 mt-8 pt-8 text-center">
+        <div className="border-t border-slate-800/50 mt-8 pt-8 text-center">
           <p className="text-slate-400">
             © {new Date().getFullYear()} Matheus Queiroz. Todos os direitos
             reservados.

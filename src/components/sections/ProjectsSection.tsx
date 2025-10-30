@@ -10,9 +10,7 @@ export function ProjectsSection() {
       description:
         "Plataforma completa de agendamento online com interface moderna e funcionalidades avançadas.",
       icon: "📅",
-      gradient: "from-blue-500 to-purple-600",
       demoLink: "https://m-agendy.vercel.app",
-      demoColor: "bg-blue-600 hover:bg-blue-700",
     },
     {
       title: "E-Commerce",
@@ -20,9 +18,7 @@ export function ProjectsSection() {
       description:
         "Plataforma de e-commerce completa com sistema de pagamentos e gestão de produtos.",
       icon: "🛒",
-      gradient: "from-green-500 to-teal-600",
       demoLink: "#",
-      demoColor: "bg-green-600 hover:bg-green-700",
     },
     {
       title: "Dashboard",
@@ -30,21 +26,19 @@ export function ProjectsSection() {
       description:
         "Dashboard interativo com gráficos e métricas para gestão empresarial.",
       icon: "📊",
-      gradient: "from-orange-500 to-red-600",
       demoLink: "#",
-      demoColor: "bg-orange-600 hover:bg-orange-700",
     },
   ];
 
   return (
     <section
       id="projetos"
-      className="relative py-32 px-4 sm:px-6 lg:px-8 border-b border-purple-900/20"
+      className="relative py-32 px-4 sm:px-6 lg:px-8 border-b border-slate-800/50"
     >
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16 animate-on-scroll">
           <h2 className="text-3xl font-bold text-white mb-4">Meus Projetos</h2>
-          <div className="w-20 h-1 bg-gradient-to-r from-blue-400 to-purple-400 mx-auto rounded-full"></div>
+          <div className="w-20 h-1 bg-slate-700 mx-auto rounded-full"></div>
           <p className="text-xl text-slate-300 mt-4">
             Alguns dos principais projetos que desenvolvi
           </p>
@@ -54,20 +48,16 @@ export function ProjectsSection() {
           {projects.map((project, index) => (
             <div
               key={project.title}
-              className="group bg-slate-800/50 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:scale-105 backdrop-blur-sm border border-purple-500/20 animate-on-scroll"
+              className="group bg-slate-800/50 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:scale-105 backdrop-blur-sm border border-slate-700/50 animate-on-scroll"
               style={{ animationDelay: `${index * 200}ms` }}
             >
-              <div
-                className={`h-48 bg-gradient-to-br ${project.gradient} flex items-center justify-center relative overflow-hidden`}
-              >
-                <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent"></div>
+              <div className="h-48 bg-slate-700/50 flex items-center justify-center relative overflow-hidden">
                 <div className="text-white text-center relative z-10">
                   <div className="text-5xl mb-2 group-hover:scale-110 transition-transform duration-300">
                     {project.icon}
                   </div>
                   <div className="text-xl font-semibold">{project.title}</div>
                 </div>
-                <div className="absolute top-4 right-4 w-8 h-8 bg-white/20 rounded-full animate-ping"></div>
               </div>
               <div className="p-6">
                 <h3 className="text-xl font-semibold text-white mb-2">
@@ -79,14 +69,14 @@ export function ProjectsSection() {
                     href={project.demoLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`inline-flex items-center px-4 py-2 ${project.demoColor} text-white rounded-lg transition-all duration-300 text-sm group-hover:scale-105`}
+                    className="inline-flex items-center px-4 py-2 bg-slate-700 hover:bg-slate-600 text-white rounded-lg transition-all duration-300 text-sm group-hover:scale-105"
                   >
                     <ExternalLink className="w-4 h-4 mr-1" />
                     Ver Demo
                   </a>
                   <a
                     href="#"
-                    className="inline-flex items-center px-4 py-2 border border-purple-500/20 text-slate-300 rounded-lg hover:bg-purple-500/10 transition-all duration-300 text-sm group-hover:scale-105"
+                    className="inline-flex items-center px-4 py-2 border border-slate-700/50 text-slate-300 rounded-lg hover:bg-slate-700/50 transition-all duration-300 text-sm group-hover:scale-105"
                   >
                     <Github className="w-4 h-4 mr-1" />
                     Código
@@ -100,7 +90,7 @@ export function ProjectsSection() {
         <div className="text-center animate-on-scroll">
           <a
             href="/projetos"
-            className="group inline-flex items-center px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-xl"
+            className="group inline-flex items-center px-8 py-4 bg-slate-800 hover:bg-slate-700 border border-slate-700 text-white font-semibold rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-xl"
           >
             Ver Todos os Projetos
             <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />

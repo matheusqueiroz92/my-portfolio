@@ -16,7 +16,7 @@ export default function Home() {
   const { heroRef, floatingElementsRef } = useGSAPAnimations();
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-950 via-purple-950 to-black relative overflow-hidden">
+    <div className="min-h-screen bg-slate-950 relative overflow-hidden">
       <AnimatedParticles />
       <AnimatedBackground floatingElementsRef={floatingElementsRef} />
       <Header />
