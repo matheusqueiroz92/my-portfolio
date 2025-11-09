@@ -1,0 +1,50 @@
+name: Deploy to VPS
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Deploy to VPS via SSH
+        uses: appleboy/ssh-action@v0.1.6
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          port: ${{ secrets.SSH_PORT }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          passphrase: ${{ secrets.SSH_PASSPHRASE }}
+          script: |
+            set -e
+            echo "Deploy triggered by $GITHUB_ACTOR on $GITHUB_REF"
+            # Ajuste o diretório da aplicação
+            APP_DIR="${{ secrets.APP_DIR }}"
+            cd "$APP_DIR"
+
+            # Garantir que a pasta é um repo git e obter as últimas alterações
+            if [ -d .git ]; then
+              git fetch --all --prune
+              git reset --hard origin/main
+            else
+              echo "Diretório $APP_DIR não contém um repositório git. Saindo com erro."
+              exit 1
+            fi
+
+            # Instalar dependências e build
+            npm ci
+            npm run build
+
+            # Reiniciar/Start com PM2
+            if pm2 describe "${{ secrets.PM2_PROCESS_NAME }}" >/dev/null 2>&1; then
+              pm2 restart "${{ secrets.PM2_PROCESS_NAME }}"
+            else
+              # Caso o processo não exista, start usando npm
+              pm2 start npm --name "${{ secrets.PM2_PROCESS_NAME }}" -- start
+            fi
+
+            pm2 save

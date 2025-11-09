@@ -213,4 +213,4 @@ Contribuições são bem-vindas! Sinta-se à vontade para:
 
 ---
 
-**Desenvolvido com ❤️ por Matheus Queiroz**
+**Desenvolvido por Matheus Queiroz**

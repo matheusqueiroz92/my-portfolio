@@ -31,7 +31,7 @@ export interface Service {
 // Tipos para tecnologias
 export interface Technology {
   name: string;
-  category: "frontend" | "backend" | "tools";
+  category: "frontend" | "backend" | "database" | "tools";
 }
 
 // Tipos para projetos

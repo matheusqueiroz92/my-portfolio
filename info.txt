@@ -288,7 +288,7 @@ Otimize para conversão com CTAs estratégicos
 
     
     
-    O design desse site deve ser minimalista, moderno, elegante e atraente. Deve ser composto de cores predominantemente escuras (com opção de alterar para um tema light), que façam alusão a tecnologia, computação e programação. Deve ser bastante criativo, ter animações relacionadas ao tema do site, e proporcionar uma excelente UX/UI ao quem acessa-o.
+O design desse site deve ser minimalista, moderno, elegante e atraente. Deve ser composto de cores predominantemente escuras (com opção de alterar para um tema light), que façam alusão a tecnologia, computação e programação. Deve ser bastante criativo, ter animações relacionadas ao tema do site, e proporcionar uma excelente UX/UI ao quem acessa-o.
 
     
 
