@@ -16,7 +16,7 @@ export default function Home() {
   const { heroRef } = useGSAPAnimations();
 
   return (
-    <div className="min-h-screen bg-slate-950 relative overflow-hidden">
+    <div className="min-h-screen bg-background text-foreground relative overflow-hidden transition-colors duration-300">
       <AnimatedParticles />
       <AnimatedBackground />
       <Header />

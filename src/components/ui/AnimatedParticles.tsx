@@ -21,6 +21,30 @@ export function AnimatedParticles() {
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
+    const getPrimaryColor = () => {
+      if (typeof window === "undefined") return "#3b82f6";
+      const computed = getComputedStyle(document.documentElement);
+      const color = computed.getPropertyValue("--particle-color") || computed.getPropertyValue("--primary");
+      return color.trim() || "#3b82f6";
+    };
+
+    let primaryColor = getPrimaryColor();
+
+    const observer = new MutationObserver(() => {
+      primaryColor = getPrimaryColor();
+    });
+
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["class"],
+    });
+
+    const handleStorage = () => {
+      primaryColor = getPrimaryColor();
+    };
+
+    window.addEventListener("storage", handleStorage);
+
     // Configurar canvas
     const resizeCanvas = () => {
       canvas.width = window.innerWidth;
@@ -66,10 +90,13 @@ export function AnimatedParticles() {
         }
 
         // Desenhar partícula
+        ctx.save();
+        ctx.globalAlpha = particle.opacity;
         ctx.beginPath();
         ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(59, 130, 246, ${particle.opacity})`;
+        ctx.fillStyle = primaryColor;
         ctx.fill();
+        ctx.restore();
 
         // Conectar partículas próximas
         particlesRef.current.forEach((otherParticle, otherIndex) => {
@@ -81,14 +108,15 @@ export function AnimatedParticles() {
           );
 
           if (distance < 100) {
+            ctx.save();
+            ctx.globalAlpha = 0.1 * (1 - distance / 100);
             ctx.beginPath();
             ctx.moveTo(particle.x, particle.y);
             ctx.lineTo(otherParticle.x, otherParticle.y);
-            ctx.strokeStyle = `rgba(59, 130, 246, ${
-              0.1 * (1 - distance / 100)
-            })`;
+            ctx.strokeStyle = primaryColor;
             ctx.lineWidth = 1;
             ctx.stroke();
+            ctx.restore();
           }
         });
       });
@@ -101,6 +129,8 @@ export function AnimatedParticles() {
     // Cleanup
     return () => {
       window.removeEventListener("resize", resizeCanvas);
+      observer.disconnect();
+      window.removeEventListener("storage", handleStorage);
     };
   }, []);
 

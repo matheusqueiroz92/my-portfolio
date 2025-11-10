@@ -27,35 +27,37 @@ export function AboutSection() {
   return (
     <section
       id="sobre"
-      className="relative py-32 px-4 sm:px-6 lg:px-8 border-b border-slate-800/50"
+      className="relative py-32 px-4 sm:px-6 lg:px-8 border-b border-border/60 transition-colors duration-300"
     >
       <div className="max-w-7xl mx-auto">
         <div className="grid lg:grid-cols-2 gap-12 items-start">
           {/* Left Side - Services */}
           <div className="space-y-8 animate-on-scroll">
             <div className="text-center lg:text-left">
-              <h2 className="text-3xl font-bold text-white mb-4">
-                Serviços que ofereço
+              <h2 className="text-3xl font-bold text-foreground mb-4">
+                Áreas de Atuação
               </h2>
-              <div className="w-20 h-1 bg-slate-700 mx-auto lg:mx-0 rounded-full"></div>
+              <div className="w-20 h-1 bg-primary/60 mx-auto lg:mx-0 rounded-full"></div>
             </div>
 
             <div className="space-y-6">
               {services.map((service, index) => (
                 <div
                   key={service.title}
-                  className="group p-6 bg-slate-800/50 backdrop-blur-sm rounded-2xl border border-slate-700/50 transition-all duration-300 transform hover:scale-105 hover:shadow-xl animate-on-scroll"
+                  className="group p-6 bg-card/80 backdrop-blur-sm rounded-2xl border border-border/60 transition-all duration-300 transform hover:scale-105 hover:shadow-xl animate-on-scroll"
                   style={{ animationDelay: `${index * 200}ms` }}
                 >
                   <div className="flex items-start space-x-4">
-                    <div className="w-12 h-12 bg-slate-700 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                      <service.icon className="w-6 h-6 text-slate-300" />
+                    <div className="w-12 h-12 bg-muted/70 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                      <service.icon className="w-6 h-6 text-foreground" />
                     </div>
                     <div className="flex-1">
-                      <h3 className="text-xl font-semibold text-white mb-2">
+                      <h3 className="text-xl font-semibold text-foreground mb-2">
                         {service.title}
                       </h3>
-                      <p className="text-slate-300">{service.description}</p>
+                      <p className="text-muted-foreground">
+                        {service.description}
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -66,11 +68,13 @@ export function AboutSection() {
           {/* Right Side - About Me */}
           <div className="space-y-6 animate-on-scroll">
             <div className="text-center lg:text-left">
-              <h2 className="text-3xl font-bold text-white mb-4">Sobre Mim</h2>
-              <div className="w-20 h-1 bg-slate-700 mx-auto lg:mx-0 rounded-full"></div>
+              <h2 className="text-3xl font-bold text-foreground mb-4">
+                Sobre Mim
+              </h2>
+              <div className="w-20 h-1 bg-primary/60 mx-auto lg:mx-0 rounded-full"></div>
             </div>
 
-            <div className="space-y-4 text-slate-300 leading-relaxed">
+            <div className="space-y-4 text-muted-foreground leading-relaxed">
               <p>
                 Olá! Sou Matheus Queiroz, um Desenvolvedor Web Fullstack
                 apaixonado por tecnologia e inovação. Com 33 anos de idade, sou
@@ -87,7 +91,7 @@ export function AboutSection() {
                   href="https://www.azworkcenter.com.br/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-slate-300 hover:text-white underline"
+                  className="text-primary hover:text-primary/80 underline"
                 >
                   AZ Work Center
                 </a>
@@ -104,13 +108,13 @@ export function AboutSection() {
             </div>
 
             <div className="grid grid-cols-2 gap-4 pt-4">
-              <div className="text-center p-6 bg-slate-800/50 backdrop-blur-sm rounded-2xl border border-slate-700/50 hover:scale-105 transition-transform duration-300">
-                <div className="text-3xl font-bold text-slate-300">33</div>
-                <div className="text-sm text-slate-400">Anos</div>
+              <div className="text-center p-6 bg-card/80 backdrop-blur-sm rounded-2xl border border-border/60 hover:scale-105 transition-transform duration-300">
+                <div className="text-3xl font-bold text-foreground">33</div>
+                <div className="text-sm text-muted-foreground">Anos</div>
               </div>
-              <div className="text-center p-6 bg-slate-800/50 backdrop-blur-sm rounded-2xl border border-slate-700/50 hover:scale-105 transition-transform duration-300">
-                <div className="text-3xl font-bold text-slate-300">1</div>
-                <div className="text-sm text-slate-400">Filho</div>
+              <div className="text-center p-6 bg-card/80 backdrop-blur-sm rounded-2xl border border-border/60 hover:scale-105 transition-transform duration-300">
+                <div className="text-3xl font-bold text-foreground">1</div>
+                <div className="text-sm text-muted-foreground">Filho</div>
               </div>
             </div>
           </div>

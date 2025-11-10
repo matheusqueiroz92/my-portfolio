@@ -37,22 +37,20 @@ export function Header() {
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-slate-950/80 backdrop-blur-xl border-b border-slate-800/50 transition-all duration-300">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-xl border-b border-border/60 transition-all duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
-          {mounted && (
-            <div className="transition-transform duration-300 hover:scale-110">
-              <Image
-                src={LogoDark}
-                alt="Logo"
-                width={150}
-                height={100}
-                priority
-                className="block"
-              />
-            </div>
-          )}
+          <div className="transition-transform duration-300 hover:scale-110">
+            <Image
+              src={isDark ? LogoDark : LogoLight}
+              alt="Logo"
+              width={150}
+              height={100}
+              priority
+              className={mounted ? "block" : "invisible"}
+            />
+          </div>
 
           {/* Menu Centralizado */}
           <nav className="hidden md:flex items-center space-x-8 absolute left-1/2 transform -translate-x-1/2">
@@ -60,10 +58,10 @@ export function Header() {
               <a
                 key={item}
                 href={`#${item.toLowerCase().replace(" ", "")}`}
-                className="relative text-slate-300 hover:text-white transition-colors duration-300 group"
+                className="relative text-muted-foreground hover:text-foreground transition-colors duration-300 group"
               >
                 {item}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-slate-300 group-hover:w-full transition-all duration-300"></span>
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary/80 group-hover:w-full transition-all duration-300"></span>
               </a>
             ))}
           </nav>
@@ -76,7 +74,7 @@ export function Header() {
                 href={social.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-slate-300 transition-all duration-300 hover:scale-110 hover:text-white"
+                className="text-muted-foreground transition-all duration-300 hover:scale-110 hover:text-foreground"
               >
                 <social.icon className="w-5 h-5" />
               </a>
@@ -87,7 +85,7 @@ export function Header() {
           {/* Mobile Menu Button */}
           <button
             onClick={toggleMenu}
-            className="md:hidden p-2 rounded-md text-slate-300 hover:text-white transition-all duration-300"
+            className="md:hidden p-2 rounded-md text-muted-foreground hover:text-foreground transition-all duration-300"
           >
             {isMenuOpen ? (
               <X className="w-6 h-6" />
@@ -99,13 +97,13 @@ export function Header() {
 
         {/* Mobile Menu */}
         {isMenuOpen && (
-          <div className="md:hidden py-6 border-t border-slate-800/50 animate-in slide-in-from-top-2">
+          <div className="md:hidden py-6 border-t border-border/60 bg-background/95 animate-in slide-in-from-top-2 transition-colors duration-300">
             <nav className="flex flex-col space-y-6">
               {navigationItems.map((item, index) => (
                 <a
                   key={item}
                   href={`#${item.toLowerCase().replace(" ", "")}`}
-                  className="text-slate-300 hover:text-white transition-colors duration-300 text-center"
+                  className="text-muted-foreground hover:text-foreground transition-colors duration-300 text-center"
                   style={{ animationDelay: `${index * 100}ms` }}
                 >
                   {item}
@@ -118,7 +116,7 @@ export function Header() {
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-slate-300 transition-all duration-300 hover:scale-110 hover:text-white"
+                    className="text-muted-foreground transition-all duration-300 hover:scale-110 hover:text-foreground"
                   >
                     <social.icon className="w-6 h-6" />
                   </a>
