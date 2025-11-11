@@ -1,16 +1,19 @@
 "use client";
 
 import { useState } from "react";
-import { Menu, X, Linkedin, Github, Instagram } from "lucide-react";
+import { Menu, X, Linkedin, Github, Instagram, FileDown } from "lucide-react";
 import { ThemeToggle } from "@/components/ui/ThemeToggle";
 import Image from "next/image";
 import LogoDark from "../../../public/logo-matheus-dev.png";
 import LogoLight from "../../../public/logo-matheus-dev-escura.png";
-import { useThemeDetection } from "@/hooks/useThemeDetection";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const { isDark, mounted } = useThemeDetection();
 
   const navigationItems = ["Início", "Sobre Mim", "Projetos", "Contato"];
 
@@ -19,16 +22,26 @@ export function Header() {
       href: "https://linkedin.com/in/matheus-queiroz-dev-web",
       icon: Linkedin,
       color: "hover:text-blue-600",
+      label: "LinkedIn",
     },
     {
       href: "https://github.com/matheusqueiroz92",
       icon: Github,
       color: "hover:text-gray-800 dark:hover:text-white",
+      label: "GitHub",
     },
     {
       href: "https://instagram.com/matheusgiga",
       icon: Instagram,
       color: "hover:text-pink-600",
+      label: "Instagram",
+    },
+    {
+      href: "/curriculo.pdf",
+      icon: FileDown,
+      color: "hover:text-gray-800 dark:hover:text-white",
+      download: true,
+      label: "Currículo",
     },
   ];
 
@@ -41,14 +54,22 @@ export function Header() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
-          <div className="transition-transform duration-300 hover:scale-110">
+          <div className="transition-transform duration-300 hover:scale-110 flex items-center">
             <Image
-              src={isDark ? LogoDark : LogoLight}
-              alt="Logo"
+              src={LogoLight}
+              alt="Logo Matheus Queiroz"
               width={150}
               height={100}
               priority
-              className={mounted ? "block" : "invisible"}
+              className="block dark:hidden h-auto w-[150px]"
+            />
+            <Image
+              src={LogoDark}
+              alt="Logo Matheus Queiroz"
+              width={150}
+              height={100}
+              priority
+              className="hidden dark:block h-auto w-[150px]"
             />
           </div>
 
@@ -69,15 +90,24 @@ export function Header() {
           {/* Social + Toggle */}
           <div className="hidden md:flex items-center space-x-4">
             {socialLinks.map((social) => (
-              <a
-                key={social.href}
-                href={social.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-muted-foreground transition-all duration-300 hover:scale-110 hover:text-foreground"
-              >
-                <social.icon className="w-5 h-5" />
-              </a>
+              <Tooltip key={social.href}>
+                <TooltipTrigger asChild>
+                  <a
+                    href={social.href}
+                    target={social.download ? "_self" : "_blank"}
+                    rel={social.download ? undefined : "noopener noreferrer"}
+                    download={
+                      social.download
+                        ? "curriculo-matheus-queiroz.pdf"
+                        : undefined
+                    }
+                    className="text-muted-foreground transition-all duration-300 hover:scale-110 hover:text-foreground"
+                  >
+                    <social.icon className="w-5 h-5" />
+                  </a>
+                </TooltipTrigger>
+                <TooltipContent side="bottom">{social.label}</TooltipContent>
+              </Tooltip>
             ))}
             <ThemeToggle />
           </div>
@@ -111,15 +141,28 @@ export function Header() {
               ))}
               <div className="flex items-center justify-center space-x-6 pt-6">
                 {socialLinks.map((social) => (
-                  <a
-                    key={social.href}
-                    href={social.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-muted-foreground transition-all duration-300 hover:scale-110 hover:text-foreground"
-                  >
-                    <social.icon className="w-6 h-6" />
-                  </a>
+                  <Tooltip key={social.href}>
+                    <TooltipTrigger asChild>
+                      <a
+                        href={social.href}
+                        target={social.download ? "_self" : "_blank"}
+                        rel={
+                          social.download ? undefined : "noopener noreferrer"
+                        }
+                        download={
+                          social.download
+                            ? "curriculo-matheus-queiroz.pdf"
+                            : undefined
+                        }
+                        className="text-muted-foreground transition-all duration-300 hover:scale-110 hover:text-foreground"
+                      >
+                        <social.icon className="w-6 h-6" />
+                      </a>
+                    </TooltipTrigger>
+                    <TooltipContent side="bottom">
+                      {social.label}
+                    </TooltipContent>
+                  </Tooltip>
                 ))}
                 <ThemeToggle />
               </div>

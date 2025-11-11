@@ -4,11 +4,8 @@ import { Linkedin, Github, Instagram } from "lucide-react";
 import Image from "next/image";
 import LogoDark from "../../../public/logo-matheus-dev.png";
 import LogoLight from "../../../public/logo-matheus-dev-escura.png";
-import { useThemeDetection } from "@/hooks/useThemeDetection";
 
 export function Footer() {
-  const { isDark, mounted } = useThemeDetection();
-
   const socialLinks = [
     {
       href: "https://linkedin.com/in/matheus-queiroz-dev-web",
@@ -43,14 +40,22 @@ export function Footer() {
           {/* Logo and Description */}
           <div className="md:col-span-2">
             <div className="flex items-center mb-4">
-              <div className="transition-transform duration-300 hover:scale-110">
+              <div className="transition-transform duration-300 hover:scale-110 flex items-center">
                 <Image
-                  src={isDark ? LogoDark : LogoLight}
-                  alt="Logo"
+                  src={LogoLight}
+                  alt="Logo Matheus Queiroz"
                   width={240}
                   height={80}
                   priority
-                  className={mounted ? "block" : "invisible"}
+                  className="block dark:hidden h-auto w-[240px]"
+                />
+                <Image
+                  src={LogoDark}
+                  alt="Logo Matheus Queiroz"
+                  width={240}
+                  height={80}
+                  priority
+                  className="hidden dark:block h-auto w-[240px]"
                 />
               </div>
             </div>

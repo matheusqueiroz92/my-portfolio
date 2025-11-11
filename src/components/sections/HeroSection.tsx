@@ -13,6 +13,7 @@ import {
   LaptopMinimal,
   Cpu,
 } from "lucide-react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -20,157 +21,168 @@ interface HeroSectionProps {
   heroRef: React.RefObject<HTMLDivElement | null>;
 }
 
+const HERO_PHRASES = [
+  "Soluções Digitais",
+  "Aplicações Modernas",
+  "Experiências Web",
+  "Interfaces Elegantes",
+];
+
 export function HeroSection({ heroRef }: HeroSectionProps) {
+  const [phraseIndex, setPhraseIndex] = useState(0);
+  const [displayText, setDisplayText] = useState("");
+  const [isDeleting, setIsDeleting] = useState(false);
+
+  useEffect(() => {
+    const currentPhrase = HERO_PHRASES[phraseIndex];
+
+    if (!isDeleting && displayText === currentPhrase) {
+      const timeout = setTimeout(() => setIsDeleting(true), 1500);
+      return () => clearTimeout(timeout);
+    }
+
+    if (isDeleting && displayText === "") {
+      const timeout = setTimeout(() => {
+        setIsDeleting(false);
+        setPhraseIndex((prev) => (prev + 1) % HERO_PHRASES.length);
+      }, 400);
+      return () => clearTimeout(timeout);
+    }
+
+    const timeout = setTimeout(
+      () => {
+        const nextLength = displayText.length + (isDeleting ? -1 : 1);
+        setDisplayText(currentPhrase.substring(0, nextLength));
+      },
+      isDeleting ? 40 : 90
+    );
+
+    return () => clearTimeout(timeout);
+  }, [displayText, isDeleting, phraseIndex]);
+
   return (
     <section
       id="inicio"
       ref={heroRef}
-      className="relative pt-24 pb-32 px-4 sm:px-6 lg:px-8 min-h-screen flex items-center border-b border-border/60 transition-colors duration-300"
+      className="relative flex min-h-screen items-center border-b border-border/60 px-4 py-36 transition-colors duration-300 sm:px-6 lg:px-8"
     >
-      <div className="max-w-7xl mx-auto w-full">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Left Side - Content */}
-          <div className="space-y-8">
-            <div className="space-y-6">
-              {/* Badge */}
-              <div className="flex gap-3">
-                <div className="hero-badge inline-flex items-center px-4 py-2 bg-muted/60 border border-border/60 text-muted-foreground rounded-full text-xs font-medium">
-                  <CodeXml className="w-4 h-4 mr-2" />
-                  Dev Fullstack
-                </div>
-
-                <div className="hero-badge inline-flex items-center px-4 py-2 bg-muted/60 border border-border/60 text-muted-foreground rounded-full text-xs font-medium">
-                  <LaptopMinimal className="w-4 h-4 mr-2" />
-                  Eng. Software
-                </div>
-
-                <div className="hero-badge inline-flex items-center px-4 py-2 bg-muted/60 border border-border/60 text-muted-foreground rounded-full text-xs font-medium">
-                  <Cpu className="w-4 h-4 mr-2" />
-                  Eng. Computação
-                </div>
-              </div>
-
-              {/* Título principal */}
-              <h1 className="hero-title text-5xl sm:text-6xl lg:text-7xl font-bold text-foreground leading-tight">
-                Transformando ideias em{" "}
-                <span className="relative inline-block">
-                  <span className="text-primary">realidade digital</span>
-                </span>
-              </h1>
-
-              {/* Subtítulo */}
-              <p className="hero-subtitle text-xl text-muted-foreground leading-relaxed max-w-2xl">
-                Desenvolvedor Web Fullstack apaixonado por criar soluções
-                inovadoras e experiências digitais excepcionais.
-              </p>
+      <div className="mx-auto flex w-full max-w-7xl flex-col gap-16 lg:flex-row lg:items-center">
+        <div className="w-full space-y-8 text-left lg:w-1/2">
+          <div className="flex flex-wrap items-center gap-3 text-xs font-medium text-muted-foreground">
+            <div className="hero-badge inline-flex items-center rounded-full border border-border/60 bg-muted/60 px-4 py-2 gap-2">
+              <CodeXml className="h-4 w-4" /> Dev. Fullstack
             </div>
-
-            {/* Botões de ação */}
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Link
-                href="#contato"
-                className="hero-cta group inline-flex items-center justify-center px-6 sm:px-10 py-3 bg-primary hover:bg-primary/90 border border-transparent text-primary-foreground font-semibold rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-xl"
-              >
-                <MessageCircle className="w-5 h-5 mr-2" />
-                Entre em Contato
-                <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
-              </Link>
-              <Link
-                href="#projetos"
-                className="hero-cta group inline-flex items-center justify-center px-6 sm:px-8 py-3 border border-border text-foreground hover:bg-muted/70 font-semibold rounded-full transition-all duration-300 transform hover:scale-105"
-              >
-                <ExternalLink className="w-5 h-5 mr-2" />
-                Ver Projetos
-              </Link>
+            <div className="hero-badge inline-flex items-center rounded-full border border-border/60 bg-muted/60 px-4 py-2 gap-2">
+              <LaptopMinimal className="h-4 w-4" /> Eng. Software
             </div>
-
-            {/* Cards de Estatísticas */}
-            <div className="grid grid-cols-3 gap-6 pt-8 animate-on-scroll">
-              <div className="text-center p-4 bg-card/80 backdrop-blur-sm rounded-2xl border border-border/60 transition-colors duration-300">
-                <div className="text-3xl font-bold text-foreground">50+</div>
-                <div className="text-sm text-muted-foreground">Projetos</div>
-              </div>
-              <div className="text-center p-4 bg-card/80 backdrop-blur-sm rounded-2xl border border-border/60 transition-colors duration-300">
-                <div className="text-3xl font-bold text-foreground">5+</div>
-                <div className="text-sm text-muted-foreground">Anos Exp.</div>
-              </div>
-              <div className="text-center p-4 bg-card/80 backdrop-blur-sm rounded-2xl border border-border/60 transition-colors duration-300">
-                <div className="text-3xl font-bold text-foreground">100%</div>
-                <div className="text-sm text-muted-foreground">Satisfação</div>
-              </div>
+            <div className="hero-badge inline-flex items-center rounded-full border border-border/60 bg-muted/60 px-4 py-2 gap-2">
+              <Cpu className="h-4 w-4" /> Eng. Computação
             </div>
           </div>
 
-          {/* Right Side - Creative Animation */}
-          <div className="relative animate-on-scroll">
-            <div className="relative w-full h-96 lg:h-[600px] flex items-center justify-center">
-              {/* Floating Icons */}
-              <div
-                className="absolute top-8 left-8 w-12 h-12 bg-gradient-to-br from-primary/20 to-muted/40 rounded-xl flex items-center justify-center backdrop-blur-sm animate-bounce border border-border/40"
-                style={{ animationDuration: "3s" }}
-              >
-                <Code className="w-6 h-6 text-foreground" />
-              </div>
-              <div
-                className="absolute top-16 right-12 w-10 h-10 bg-gradient-to-br from-primary/20 to-accent/30 rounded-xl flex items-center justify-center backdrop-blur-sm animate-bounce delay-1000 border border-border/40"
-                style={{ animationDuration: "3s" }}
-              >
-                <Database className="w-5 h-5 text-foreground" />
-              </div>
-              <div
-                className="absolute bottom-16 left-12 w-10 h-10 bg-gradient-to-br from-accent/30 to-primary/30 rounded-xl flex items-center justify-center backdrop-blur-sm animate-bounce delay-2000 border border-border/40"
-                style={{ animationDuration: "3s" }}
-              >
-                <Smartphone className="w-5 h-5 text-foreground" />
-              </div>
-              <div
-                className="absolute bottom-8 right-8 w-12 h-12 bg-gradient-to-br from-primary/30 to-muted/40 rounded-xl flex items-center justify-center backdrop-blur-sm animate-bounce delay-3000 border border-border/40"
-                style={{ animationDuration: "3s" }}
-              >
-                <Globe className="w-6 h-6 text-foreground" />
-              </div>
+          <h1 className="hero-title text-3xl font-bold leading-tight text-foreground sm:text-5xl lg:text-6xl min-h-[3.6rem] sm:min-h-[4.2rem]">
+            Transformando ideias em{" "}
+            <span className="typewriter-wrapper text-primary">
+              {displayText}
+              <span className="typewriter-cursor" />
+            </span>
+          </h1>
 
-              {/* Central Content */}
-              <div className="text-center">
-                <div className="flex justify-center">
-                  <div className="relative">
-                    {/* Glow effect behind the image */}
-                    <div className="absolute inset-0 rounded-full bg-gradient-to-r from-primary/30 via-muted/40 to-accent/30 blur-xl -z-10"></div>
-                    <Image
-                      src="/foto-matheus.png"
-                      alt="Matheus Queiroz"
-                      width={450}
-                      height={450}
-                      className="rounded-full border-4 border-foreground/20 shadow-2xl animate-float relative z-10"
-                      style={{ animationDuration: "3s" }}
-                      priority
-                    />
-                  </div>
-                </div>
-              </div>
+          <p className="hero-subtitle max-w-xl text-lg leading-relaxed text-muted-foreground sm:text-xl">
+            Unindo desenvolvimento fullstack, automação e inteligência
+            artificial para criar plataformas inteligentes, performáticas e
+            visualmente elegantes.
+          </p>
 
-              {/* Floating Elements */}
-              <div className="absolute -bottom-4 -left-4 w-6 h-6 bg-muted/50 rounded-full animate-pulse"></div>
-              <div className="absolute top-1/2 -left-8 w-4 h-4 bg-accent/40 rounded-full animate-bounce"></div>
+          <div className="flex flex-col gap-4 sm:flex-row">
+            <Link
+              href="#contato"
+              className="hero-cta group inline-flex items-center justify-center rounded-full border border-transparent bg-primary px-6 py-3 font-semibold text-primary-foreground transition-all duration-300 hover:scale-[1.03] hover:bg-primary/90 hover:shadow-xl sm:px-10"
+            >
+              <MessageCircle className="mr-2 h-5 w-5" />
+              Entre em Contato
+              <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+            </Link>
+            <Link
+              href="#projetos"
+              className="hero-cta group inline-flex items-center justify-center rounded-full border border-border px-6 py-3 font-semibold text-foreground transition-all duration-300 hover:scale-[1.03] hover:bg-muted/70 sm:px-8"
+            >
+              <ExternalLink className="mr-2 h-5 w-5" />
+              Ver Projetos
+            </Link>
+          </div>
+        </div>
+
+        <div className="relative w-full max-w-xl lg:w-1/2">
+          <div className="relative flex items-center justify-center">
+            <Image
+              src="/foto-matheus-portfolio.png"
+              alt="Matheus Queiroz"
+              width={440}
+              height={440}
+              priority
+              className="hero-photo"
+            />
+
+            <div className="absolute -top-10 -left-6 hidden h-14 w-14 items-center justify-center rounded-2xl border border-primary/30 bg-primary/10 backdrop-blur-sm shadow-[0_0_25px_rgba(0,231,255,0.25)] animate-float lg:flex">
+              <Code className="h-6 w-6 text-primary" />
+            </div>
+            <div className="absolute -top-6 -right-4 hidden h-12 w-12 items-center justify-center rounded-2xl border border-primary/30 bg-primary/10 backdrop-blur-sm shadow-[0_0_20px_rgba(0,231,255,0.2)] animate-float delay-100 lg:flex">
+              <Database className="h-5 w-5 text-primary" />
+            </div>
+            <div className="absolute -bottom-10 left-2 hidden h-12 w-12 items-center justify-center rounded-2xl border border-primary/30 bg-primary/10 backdrop-blur-sm shadow-[0_0_20px_rgba(0,231,255,0.2)] animate-float delay-200 lg:flex">
+              <Smartphone className="h-5 w-5 text-primary" />
+            </div>
+            <div className="absolute -bottom-8 -right-6 hidden h-14 w-14 items-center justify-center rounded-2xl border border-primary/30 bg-primary/10 backdrop-blur-sm shadow-[0_0_25px_rgba(0,231,255,0.25)] animate-float delay-300 lg:flex">
+              <Globe className="h-6 w-6 text-primary" />
             </div>
           </div>
         </div>
       </div>
 
-      {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-        <ChevronDown className="w-6 h-6 text-muted-foreground" />
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+        <Link
+          href="#sobre"
+          className="group inline-flex items-center justify-center"
+        >
+          <ChevronDown className="h-6 w-6 text-muted-foreground group-hover:text-primary transition-colors duration-300 animate-bounce" />
+        </Link>
       </div>
 
-      {/* Custom CSS for smooth floating animation */}
       <style jsx>{`
-        @keyframes float {
+        .hero-photo {
+          border-radius: 32px;
+          box-shadow: 0 30px 60px rgba(8, 163, 220, 0.25),
+            0 0 40px rgba(0, 231, 255, 0.18);
+        }
+
+        .typewriter-cursor {
+          display: inline-block;
+          margin-left: 0.12rem;
+          width: 2px;
+          height: 1.1em;
+          background: currentColor;
+          animation: cursorBlink 1s steps(2, start) infinite;
+          vertical-align: baseline;
+        }
+
+        .typewriter-wrapper {
+          position: relative;
+          display: inline-block;
+          min-width: clamp(16rem, 26ch, 28rem);
+          max-width: 28rem;
+          white-space: nowrap;
+          min-height: 1em;
+          vertical-align: baseline;
+        }
+
+        @keyframes cursorBlink {
           0%,
           100% {
-            transform: translateY(0px);
+            opacity: 1;
           }
           50% {
-            transform: translateY(-8px);
+            opacity: 0;
           }
         }
       `}</style>
